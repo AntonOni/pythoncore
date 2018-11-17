@@ -46,7 +46,7 @@ def negative_input_try(result):
     """
     if result < 0:
         print('Отрицательного времени не существует')
-        return 0
+        exit(0)
     return result
 
 def input_number_from_user():
