@@ -10,16 +10,6 @@ minutes_in_day = hour_in_day * minutes_in_hour
 minutes = sec / seconds_in_minutes #Целое отделение 90/60 = 1
 seconds = sec % seconds_in_minutes #Остаточная часть 90/60 = 30
 
-
-def sqr(a):
-    """
-    Краткое описвание
-    :param a: входное число
-    :return: результат
-    """
-    result = a * a
-    return result
-
 def get_hours_from_minutes(minutes):
     """
 
@@ -47,6 +37,17 @@ def get_residual_seconds(seconds):
     """
     sec = seconds % seconds_in_minutes
     return int(sec)
+
+def negative_input_try(result):
+    """
+
+    :param result:
+    :return:
+    """
+    if result < 0:
+        print('Отрицательного времени не существует')
+        return 0
+    return result
 
 def input_number_from_user():
     v = input('Введите число ')
@@ -77,14 +78,19 @@ def correct_hours_result(result):
         return 0
     return result
 
+
+
 print("проверяем")
 m = input_number_from_user()
 print('Введено число: {}'.format(m))
 
+negative_input = negative_input_try(m)
 second = get_residual_seconds(m)
 min = get_minutes_from_seconds(m)
 hours = get_hours_from_minutes(min)
 corrected_minutes = correct_minutes_result(min)
+corrected_hours = correct_hours_result(hours)
+
 
 print('Проверяем получение часов')
 print('Получить {} часов'.format(hours))
