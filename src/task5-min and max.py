@@ -39,10 +39,10 @@ print(srednee_min_max_func(list_of_numbers))
 
 another_list = [100, 200, 300, -50, 70]
 
-def maximum_another_list(another_list):
-    counter = range(another_list)
+def maximum_another_list(count, another_list):
+    counter = range(count)
 
-    for i in another_list:
+    for i in counter:
 
         return counter
 print (maximum_another_list(another_list))
