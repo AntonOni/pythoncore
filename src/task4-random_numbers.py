@@ -2,7 +2,8 @@
 import random
 
 def generate_one_number(min=0, max=100):
-    return random.randint(min, max)
+    return random.\
+        randint(min, max)
 
 def generator(count=10, min=10, max=20):
     # define empty list for random numbers
