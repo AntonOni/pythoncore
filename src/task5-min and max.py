@@ -12,9 +12,9 @@ def min_number(list_of_numbers):
     min_number = min(list_of_numbers)
     return min_number
 
-#3
 print(min_number(list_of_numbers))
 
+#3
 def summa_elim(list_of_numbers):
     summa = sum(list_of_numbers)
     return summa
@@ -37,12 +37,14 @@ def srednee_min_max_func(list_of_numbers):
 
 print(srednee_min_max_func(list_of_numbers))
 
-another_list = [100, 200, 300, -50, 70]
+another_list = [100, '200', ['a','b', 1], -50, 'ab1']
 
-def maximum_another_list(another_list):
-    counter = range(another_list)
+# def maximum_another_list(another_list):
+#     for i in another_list:
+#
+#         return counter
+# print (maximum_another_list(another_list))
 
-    for i in another_list:
+for el in another_list:
+    print ('type: {}, value: {}'.format(type(el),el))
 
-        return counter
-print (maximum_another_list(another_list))
