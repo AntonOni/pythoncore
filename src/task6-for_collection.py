@@ -46,3 +46,36 @@ def srendee(task6_list):
     return srenyaya_mulka
 print(srendee(task6_list))
 
+
+
+new_list = [-20, 12, 20, -35, 10, -1, 15]
+
+
+def summa_modul(new_list):
+    summa_mod = 0
+    for i in new_list:
+        if i > -2.5:
+            summa_mod = abs(i) * abs(i) + summa_mod
+    return summa_mod
+print(summa_modul(new_list))
+
+def summa_na_5(new_list):
+    summa_celih_na_5 = 0
+    for x in new_list:
+        if x%5 == 0:
+            summa_celih_na_5 = x + summa_celih_na_5
+    return summa_celih_na_5
+print(summa_na_5(new_list))
+
+
+
+godovie = [6.25, 6.12, 6.73, 7.15, 8.17]
+def sberbank(godovie):
+    vklad_base = 10000
+    vklad = 10000
+    profit = 0
+    for proc in godovie:
+        vklad = (vklad / 100) * proc + vklad
+        profit = vklad - vklad_base
+    return profit
+print(sberbank(godovie))
