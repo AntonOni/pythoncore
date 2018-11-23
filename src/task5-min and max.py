@@ -41,8 +41,3 @@ another_list = [100, '200', ['a','b', 1], -50, 'ab1']
 
 for el in another_list:
     print ('type: {}, value: {}'.format(type(el),el))
-
-def maximum_another_list(count, another_list):
-    counter = range(count)
-
-
