@@ -86,18 +86,20 @@ from datetime import datetime
 godovie = [6.25, 6.12, 6.73, 7.15, 8.17]
 def sberbank_popolnen(godovie, popolnenie=10000, base_vklad=10000):
     vklad = base_vklad
-    period = profit = chistaya_pribl = 0
+    period = 0
+    profit = 0
+    chistaya_pribl = 0
     god = datetime.now().year
     for proc in godovie:
         profit = vklad / 100 * proc
-        chistaya_pribl += profit
-        vklad += profit
+        chistaya_pribl = chistaya_pribl + profit
+        vklad = vklad + profit
         if period != 0:
-            vklad += popolnenie
-            base_vklad += base_vklad
+            vklad = vklad + popolnenie
+            base_vklad = base_vklad + base_vklad
         print('В {} году размер вклада составит {} , профит {}, а чистая прибыль {} р.'.format(god, vklad, profit, chistaya_pribl))
         period = period + 1
-        god += 1
+        god = god + 1
 
     return vklad - base_vklad
 
