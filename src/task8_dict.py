@@ -16,12 +16,6 @@ print(email)
 
 print(zdoroviy_chelovek['golos']())
 
-import json
-dump
-dumps
-load
-loads
-
 
 import json
 # dump -> to file
@@ -29,8 +23,8 @@ import json
 # load -> from file
 # loads -> from string
 
-ds = json.dumps(d) # convert dict to string
-print(type(ds))
+# ds = json.dumps(d) # convert dict to string
+# print(type(ds))
 
 # try:
 
