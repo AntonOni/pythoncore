@@ -1,1 +1,0 @@
-{"god": 2018, "dinanica_cen": 1248200.0, "dinamica_arendy": 296447.5, "obsluga": 249640.0, "profit": 1295007.5}
