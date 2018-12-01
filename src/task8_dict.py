@@ -17,17 +17,17 @@ print(email)
 print(zdoroviy_chelovek['golos']())
 
 import json
-dump
-dumps
-load
-loads
+# dump
+# dumps
+# load
+# loads
 
 
 import json
-# dump -> to file
-# dumps -> to string
-# load -> from file
-# loads -> from string
+# dump -> трансформирует словарь в строку и загружает ее в файл
+# dumps -> трансформирует словарь в строку (для передачи по сети например)
+# load -> берет строку из файла и трансформирует в словарь
+# loads -> трансформирует строку в словарь
 
 ds = json.dumps(d) # convert dict to string
 print(type(ds))
