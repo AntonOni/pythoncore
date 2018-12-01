@@ -16,12 +16,6 @@ print(email)
 
 print(zdoroviy_chelovek['golos']())
 
-import json
-# dump
-# dumps
-# load
-# loads
-
 
 import json
 # dump -> трансформирует словарь в строку и загружает ее в файл
@@ -29,8 +23,8 @@ import json
 # load -> берет строку из файла и трансформирует в словарь
 # loads -> трансформирует строку в словарь
 
-ds = json.dumps(d) # convert dict to string
-print(type(ds))
+# ds = json.dumps(d) # convert dict to string
+# print(type(ds))
 
 # try:
 

@@ -1,15 +1,9 @@
+import json
+
 dollars10_18 = [30.16, 29.32, 29.89, 30.30, 36.04, 70.22, 83.59, 58.29, 62.41]
 
+
 def rasschet_stoimosti_with_dict(dollars10_18, stoimost_pomesheniya=20000, stoimost_arendy_kvadrata=50, kvadraty=95):
-    """
-    Данная функция рассчитывает стоимость и доход с недвижимости и записывает данные в словарь,
-    который она и выводит потом
-    :param dollars10_18:
-    :param stoimost_pomesheniya:
-    :param stoimost_arendy_kvadrata:
-    :param kvadraty:
-    :return:
-    """
     dinanica_cen = 0
     dinamica_arendy = 0
     obsluga = 0
@@ -37,8 +31,15 @@ def rasschet_stoimosti_with_dict(dollars10_18, stoimost_pomesheniya=20000, stoim
         )
         # Сформерованный словарь с результатами template я добавляю как значение для ключа god в словарь результатов result
         result[god]=template
+        print('В {} году стоимость помещения была равна {} рублей. Стоимость аренды равнялась {} рублей. Обслуживание его обошлось в {} рублей. В итоге профит от подорожания жилья и сдачи его стоставил {} рублей.'.format(god, dinanica_cen, dinamica_arendy, obsluga, profit))
+        dict1 = {'god' : god, 'dinanica_cen' : dinanica_cen, 'dinamica_arendy' : dinamica_arendy, 'obsluga' : obsluga, 'profit' : profit}
+        with open('result.txt', 'w') as fp:
+            json.dump(dict1, fp)
+        with open('result.txt', 'r') as fp:
+            print(json.load(fp))
         god = god + 1
     return result
+
 
 funct = rasschet_stoimosti_with_dict(dollars10_18)
 print(funct)
@@ -93,3 +94,5 @@ print(funct)
 
 
 # with всегда хочет чтобы файс с которым он должен работать имел название
+
+
