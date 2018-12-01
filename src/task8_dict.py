@@ -60,3 +60,25 @@ if content:
 
 
 
+
+import json
+
+s = {}
+
+with open("result.txt", "r") as fp:
+    # load s as DICT from string file
+    s = json.load(fp)
+    print(type(s))
+    print(s)
+
+with open("result_2.txt", "w") as fp:
+    # write DICT s as STRING into file via fp
+    json.dump(s, fp)
+
+ds = json.dumps(s) # s is a dict -> to string
+print("type ds: {}".format(type(ds))) # ds is a string
+
+dss = json.loads(ds) # ds us a string -> dict
+print("type dss: {}".format(type(dss))) # dss is a dict
+
+

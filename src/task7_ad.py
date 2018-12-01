@@ -16,10 +16,10 @@ def rasschet_stoimosti_with_dict(dollars10_18, stoimost_pomesheniya=20000, stoim
         dinamica_arendy = stoimost_arendy_kvadrata * kvadraty * N
         obsluga = (dinanica_cen/100) * 20
         profit = dinanica_cen - obsluga + dinamica_arendy
-        print('В {} году стоимость помещения была равна {} рублей. '
-              'Стоимость аренды равнялась {} рублей. Обслуживание его обошлось в {} рублей. '
-              'В итоге профит от подорожания жилья и сдачи его стоставил {} рублей.'
-              .format(god, dinanica_cen, dinamica_arendy, obsluga, profit))
+        # print('В {} году стоимость помещения была равна {} рублей. '
+        #       'Стоимость аренды равнялась {} рублей. Обслуживание его обошлось в {} рублей. '
+        #       'В итоге профит от подорожания жилья и сдачи его стоставил {} рублей.'
+        #       .format(god, dinanica_cen, dinamica_arendy, obsluga, profit))
         # Создаем переменную template в которую будем заносить все результаты вычислений нашей функции как элементы словаря.
         # В этом случае переменная будет каждый раз создаваться заного и новая ссылка в словаре создается заного, а не копируется
         template = dict(
@@ -31,15 +31,17 @@ def rasschet_stoimosti_with_dict(dollars10_18, stoimost_pomesheniya=20000, stoim
         )
         # Сформерованный словарь с результатами template я добавляю как значение для ключа god в словарь результатов result
         result[god]=template
-        print('В {} году стоимость помещения была равна {} рублей. Стоимость аренды равнялась {} рублей. Обслуживание его обошлось в {} рублей. В итоге профит от подорожания жилья и сдачи его стоставил {} рублей.'.format(god, dinanica_cen, dinamica_arendy, obsluga, profit))
+        #print('В {} году стоимость помещения была равна {} рублей. Стоимость аренды равнялась {} рублей. Обслуживание его обошлось в {} рублей. В итоге профит от подорожания жилья и сдачи его стоставил {} рублей.'.format(god, dinanica_cen, dinamica_arendy, obsluga, profit))
         dict1 = {'god' : god, 'dinanica_cen' : dinanica_cen, 'dinamica_arendy' : dinamica_arendy, 'obsluga' : obsluga, 'profit' : profit}
-        with open('result.txt', 'w') as fp:
+        with open('result1.txt', 'w') as fp:
             json.dump(dict1, fp)
-        with open('result.txt', 'r') as fp:
-            print(json.load(fp))
+
         god = god + 1
     return result
 
+
+with open('result.txt', 'r') as fp:
+    print(json.load(fp))
 
 funct = rasschet_stoimosti_with_dict(dollars10_18)
 print(funct)
@@ -67,10 +69,10 @@ def rasschet_stoimosti_with_list(dollars10_18, stoimost_pomesheniya=20000, stoim
         dinamica_arendy = stoimost_arendy_kvadrata * kvadraty * N
         obsluga = (dinanica_cen/100) * 20
         profit = dinanica_cen - obsluga + dinamica_arendy
-        print('В {} году стоимость помещения была равна {} рублей. '
-              'Стоимость аренды равнялась {} рублей. Обслуживание его обошлось в {} рублей. '
-              'В итоге профит от подорожания жилья и сдачи его стоставил {} рублей.'
-              .format(god, dinanica_cen, dinamica_arendy, obsluga, profit))
+        # print('В {} году стоимость помещения была равна {} рублей. '
+        #         #       'Стоимость аренды равнялась {} рублей. Обслуживание его обошлось в {} рублей. '
+        #         #       'В итоге профит от подорожания жилья и сдачи его стоставил {} рублей.'
+        #         #       .format(god, dinanica_cen, dinamica_arendy, obsluga, profit))
         # Создаем переменную template в которую будем заносить все результаты вычислений нашей функции как элементы списка.
         # В этом случае переменная будет каждый раз создаваться заного и новая ссылка в списке создается заного, а не копируется
         template = dict(
@@ -82,8 +84,16 @@ def rasschet_stoimosti_with_list(dollars10_18, stoimost_pomesheniya=20000, stoim
         )
         # Сформерованный словарь с результатами template я добавляю как элемент списка результата result
         result.append(template)
+        with open('result1.txt', 'w') as fp:
+            json.dump(result, fp)
+
         god = god + 1
     return result
+
+
+with open('result.txt', 'r') as fp:
+    print(json.load(fp))
+
 
 funct = rasschet_stoimosti_with_list(dollars10_18)
 print(funct)
