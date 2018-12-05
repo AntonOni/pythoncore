@@ -4,6 +4,33 @@ import os
 # Определим имя файла с настройками
 settings_file_name = 'settings.json'
 
+procents_file = "procents_data.csv"
+
+def get_procents_from_file(procents_file):
+    if os.path.exists(procents_file):
+        if os.path.isfile(procents_file):
+            with open(procents_file, "r") as fp:
+                try:
+                    procents_file_content = fp.read()
+                    print(procents_file_content)
+                    procents_file_content_split = procents_file_content.split(",")
+                    print(procents_file_content_split)
+                    try:
+                        procents_file_content_split_floats = float(procents_file_content_split)
+                        return procents_file_content_split_floats
+                    except:
+                        print("Нельзя сделать float")
+                except:
+                    print("Ошибка чтения")
+        else:
+            print("Это не файл")
+    else:
+        print("Такого пути нет")
+    return 0.0
+print (get_procents_from_file(procents_file))
+
+
+
 # Читаем файл
 # Я проверяю наличие и тип файла с настройками
 # Затем импортирую его содержимое как json
@@ -41,10 +68,9 @@ def rasschet_stoimosti_with_dict(procents):
             profit=profit
         )
         result[god]=template
-        dict1 = {'god' : god, 'dinanica_cen' : dinanica_cen, 'dinamica_arendy' : dinamica_arendy, 'obsluga' : obsluga, 'profit' : profit}
-        with open(output_file, 'a') as fp:
+        with open("output_file", 'a') as fp:
             print("  [+] append data from function rasschet_stoimosti_with_dict to file {}".format(output_file))
-            json.dump(dict1, fp)
+            json.dump(template, fp)
             fp.write("\n")
         god = god + 1
     return result
@@ -53,20 +79,23 @@ def rasschet_stoimosti_with_dict(procents):
 # Выгружаем содержимое файла в переменную settings_file_content_as_json
 settings_file_content_as_json = get_settings_from_file(settings_file_name)
 
-# Создаем переменные и в них загружаем значения из settings_file_content_as_json
+# Создаем переменные и в них загружаем по отдельности каждое значение из settings_file_content_as_json
 
 # Заполняем отдельно проценты "procents": [30.16, 29.32, 29.89, 30.30, 36.04, 70.22, 83.59, 58.29, 62.41],
 procents = settings_file_content_as_json.get("procents", [])
 
 # Заполняем отдельно имя файла с результатами "ouput_file": "result_of_calcualtion.txt"
-output_file = settings_file_content_as_json.get("ouput_file", "ouput_file")
+output_file = ("ouput_file", "ouput_file")
 
-stoimost_pomesheniya=20000
-stoimost_arendy_kvadrata=50
-kvadraty=95
+stoimost_pomesheniya = settings_file_content_as_json.get("stoimost_pomesheniya", 20000)
 
-if os.path.exists(output_file):
-    os.remove(output_file)
+stoimost_arendy_kvadrata = settings_file_content_as_json.get("stoimost_arendy_kvadrata", 50)
+
+kvadraty = settings_file_content_as_json.get("kvadraty", 95)
+
+
+if os.path.exists("output_file"):
+    os.remove("output_file")
 
 
 print("[!] Call function: rasschet_stoimosti_with_dict...")
