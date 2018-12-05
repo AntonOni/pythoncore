@@ -4,7 +4,6 @@ import os
 # Определим имя файла с настройками
 settings_file_name = 'settings.json'
 
-procents_file = "procents_data.csv"
 
 def get_procents_from_file(procents_file):
     if os.path.exists(procents_file):
@@ -12,23 +11,21 @@ def get_procents_from_file(procents_file):
             with open(procents_file, "r") as fp:
                 try:
                     procents_file_content = fp.read()
-                    print(procents_file_content)
-                    procents_file_content_split = procents_file_content.split(" ,")
-                    print(procents_file_content_split)
+                    procents_file_content_split = procents_file_content.split(", ")
+                    list_of_procents = []
                     for _ in procents_file_content_split:
                         try:
-                            procents_file_content_split_floats = float(_)
-                            return procents_file_content_split_floats
+                            list_of_procents.append(float(_))
                         except:
                             print("Нельзя сделать float")
+                    return list_of_procents
                 except:
                     print("Ошибка чтения")
         else:
             print("Это не файл")
     else:
         print("Такого пути нет")
-    return 0.0
-print (get_procents_from_file(procents_file))
+    return []
 
 
 
@@ -77,13 +74,18 @@ def rasschet_stoimosti_with_dict(procents):
     return result
 
 
+
+
 # Выгружаем содержимое файла в переменную settings_file_content_as_json
 settings_file_content_as_json = get_settings_from_file(settings_file_name)
 
 # Создаем переменные и в них загружаем по отдельности каждое значение из settings_file_content_as_json
 
-# Заполняем отдельно проценты "procents": [30.16, 29.32, 29.89, 30.30, 36.04, 70.22, 83.59, 58.29, 62.41],
-procents = settings_file_content_as_json.get("procents", [])
+# Читаем имя файла с процентами из переменной settings_file_content_as_json
+
+procent_file_name = settings_file_content_as_json.get("procent_file", "procents_data.csv")
+
+procents = get_procents_from_file(procent_file_name)
 
 # Заполняем отдельно имя файла с результатами "ouput_file": "result_of_calcualtion.txt"
 output_file = ("ouput_file", "ouput_file")

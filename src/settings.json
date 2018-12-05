@@ -1,7 +1,7 @@
 {
-  "procents": [30.16, 29.32, 29.89, 30.30, 36.04, 70.22, 83.59, 58.29, 62.41],
   "ouput_file": "result_of_calcualtion.txt",
   "stoimost_pomesheniya": 20000,
   "stoimost_arendy_kvadrata": 50,
-  "kvadraty": 95
+  "kvadraty": 95,
+  "procent_file": "procents_data.csv"
 }
