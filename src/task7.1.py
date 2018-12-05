@@ -13,13 +13,14 @@ def get_procents_from_file(procents_file):
                 try:
                     procents_file_content = fp.read()
                     print(procents_file_content)
-                    procents_file_content_split = procents_file_content.split(",")
+                    procents_file_content_split = procents_file_content.split(" ,")
                     print(procents_file_content_split)
-                    try:
-                        procents_file_content_split_floats = float(procents_file_content_split)
-                        return procents_file_content_split_floats
-                    except:
-                        print("Нельзя сделать float")
+                    for _ in procents_file_content_split:
+                        try:
+                            procents_file_content_split_floats = float(_)
+                            return procents_file_content_split_floats
+                        except:
+                            print("Нельзя сделать float")
                 except:
                     print("Ошибка чтения")
         else:
