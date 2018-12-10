@@ -3,5 +3,7 @@
   "stoimost_pomesheniya": 20000,
   "stoimost_arendy_kvadrata": 50,
   "kvadraty": 95,
-  "procent_file": "procents_data.csv"
+  "procent_file":{"procents_data1": "procents_data.csv",
+                  "procents_data2": "procents_data2.csv",
+                  "procents_data3": "procents_data3.csv"}
 }
