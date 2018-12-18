@@ -113,6 +113,8 @@ b = a.work()
 print(b)
 
 
+
+
 # Выгружаем содержимое файла в переменную settings_file_content_as_json
 # settings_file_content_as_json = get_settings_from_file(settings_file_name)
 
