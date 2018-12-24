@@ -2,7 +2,7 @@ import json
 import os
 
 # Определим имя файла с настройками
-settings_file_name = 'settings.json'
+settings_file_name = "settings.json"
 
 class procent_calc:
 
