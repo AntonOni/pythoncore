@@ -9,5 +9,12 @@ t = """
 Звать из другого файла
 """
 
-# Полностью импортирую весь модуль и потом импортирую элементы отдельно
+# Полностью импортирую весь модуль со всеми элементами
 import task9
+example = task9.Credit_cards()
+example.work()
+
+# Импортируем только один элемент из всего модуля
+from task9 import Porodistiye_zveri
+x = Porodistiye_zveri()
+x.work()

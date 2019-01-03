@@ -127,12 +127,6 @@ class PeopleBaseGenerator():
             x += 1
         return
 
-
-
-a = PeopleBaseGenerator()
-a.work()
-
-
 class Credit_cards():
     def __init__(self):
         pass
@@ -254,5 +248,3 @@ class Porodistiye_zveri():
             kem_vidan = self.__vidan_kem()
             print("Животное: {}, Цвет: {}, Пасспортные данные: серия: {}, номер: {}, выдан: {}".format(zver, cvet, ceriya_pass, nomer_pass, kem_vidan))
 
-a = Porodistiye_zveri()
-a.work()
