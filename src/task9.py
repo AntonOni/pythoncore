@@ -128,8 +128,6 @@ class PeopleBaseGenerator():
         return
 
 class Credit_cards():
-    def __init__(self):
-        pass
 
     def __card_number_gen(self):
         leight = range(0, 16)
@@ -140,13 +138,15 @@ class Credit_cards():
         return cc_number
 
     def __exp_date_gen(self):
-        month = str(randint(1, 12))
+        month = randint(1, 12)
+        month = str(format(month, "02d"))
         year = str(randint(18, 24))
-        date = month + "/" + year
+        date = "/".join([month, year])
         return date
 
     def __cvs_gen(self):
         cvs = randint(000, 999)
+        cvs = str(format(cvs, "03d"))
         return cvs
 
     def work(self):
@@ -239,7 +239,7 @@ class Porodistiye_zveri():
         return vidan
 
     def work(self):
-        leigh = range(0, 20)
+        leigh = range(0, 10)
         for _ in leigh:
             zver = self.__get_random_zver()
             cvet = self.__get_random_cvet()
